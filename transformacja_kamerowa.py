@@ -29,14 +29,11 @@ if __name__=="__main__":
     cv2.setMouseCallback('obraz', klikanieObrazka)
     cv2.waitKey(0)
 
-    # print("Podaj punkty rzeczywiste (w adekwatnej kolejnosci do wyklikanych punktow monitorowych):")
-    # for i in range(4):
-    #     print("Podaj punkt rzeczywisty "+str(i+1)+":")
-    #     wsp_rzeczywiste_x[i] = int(input("Podaj X("+str(i+1)+"): "))
-    #     wsp_rzeczywiste_y[i] = int(input("Podaj Y("+str(i+1)+"): "))
-        
-    wsp_rzeczywiste_x = [7,5,18,16]
-    wsp_rzeczywiste_y = [18,7,18,7]
+    print("Podaj punkty rzeczywiste (w adekwatnej kolejnosci do wyklikanych punktow monitorowych):")
+    for i in range(4):
+        print("Podaj punkt rzeczywisty "+str(i+1)+":")
+        wsp_rzeczywiste_x[i] = int(input("Podaj X("+str(i+1)+"): "))
+        wsp_rzeczywiste_y[i] = int(input("Podaj Y("+str(i+1)+"): "))
 
     for i in range(4):
         macierz_a[i] = [wsp_monitorowe_x[i], wsp_monitorowe_y[i], 1, 0, 0, 0, -wsp_rzeczywiste_x[i]*wsp_monitorowe_x[i], -wsp_rzeczywiste_x[i]*wsp_monitorowe_y[i]]
