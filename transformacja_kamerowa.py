@@ -5,15 +5,21 @@ def klikanieObrazka(event, x, y, flags, params):
     global ilosc_klikniec
     
     if event == cv2.EVENT_LBUTTONDOWN:
+        if ilosc_klikniec == 4:
+            cv2.destroyAllWindows()
+            return
+
         cv2.putText(obraz_wejsciowy, 'Punkt ' + str(ilosc_klikniec+1), (x,y), cv2.FONT_ITALIC, 1, (0, 0, 0), 2)
         cv2.imshow('obraz', obraz_wejsciowy)
 
         wsp_monitorowe_x[ilosc_klikniec] = x
         wsp_monitorowe_y[ilosc_klikniec] = y
-
-        ilosc_klikniec += 1
+        
+        ilosc_klikniec+=1
         if ilosc_klikniec == 4:
-            cv2.destroyAllWindows()
+            cv2.putText(obraz_wejsciowy, "Kliknij by przejsc dalej", (10,70), cv2.FONT_ITALIC, 1, (0, 0, 0), 2)
+            cv2.imshow('obraz', obraz_wejsciowy)
+
   
 if __name__=="__main__":
     ilosc_klikniec = 0
@@ -63,4 +69,3 @@ if __name__=="__main__":
         print("Punkty rzeczywisty "+str(i+1)+":")
         print("X("+str(i+1)+"):", rzecz_x)
         print("Y("+str(i+1)+"):", rzecz_y)
-
